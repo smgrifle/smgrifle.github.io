@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>the end ig>?</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #121212;
+            color: #ffffff;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            overflow: hidden;
+            position: relative;
+        }
+        .container {
+            text-align: center;
+            background: rgba(30, 30, 30, 0.8);
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            width: 80%;
+            max-width: 600px;
+            position: relative;
+            z-index: 2;
+            cursor: pointer;
+        }
+        .footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+        .footer a {
+            color: #ff9800;
+            text-decoration: none;
+        }
+        .footer a:hover {
+            text-decoration: underline;
+        }
+        .goodbye-message {
+            font-size: 50px;
+            color: #ff9800;
+            animation: slideDown 1s forwards;
+        }
+        @keyframes slideDown {
+            0% { top: -100px; }
+            100% { top: 0; }
+        }
+        .video-background {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: 1;
+        }
+        .click-message {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 24px;
+            color: #ff9800;
+            cursor: pointer;
+            z-index: 3;
+            text-align: center;
+            background: rgba(0, 0, 0, 0.5);
+            padding: 10px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <video class="video-background" id="video" src="wrld.mp4" autoplay muted loop></video>
+    <audio id="audio" src="real.mp3" loop></audio>
+    <div class="click-message" id="clickMessage">If audio doesn't work, click me</div>
+    <div class="container" id="container">
+        <div class="goodbye-message" id="goodbyeMessage">Goodbye All!</div>
+        <div class="footer">
+            Made by <a href="https://discord.gg/BVftC8Qnkt" id="creatorLink">Y</a>
+        </div>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const goodbyeMessage = document.getElementById('goodbyeMessage');
+            const video = document.getElementById('video');
+            const audio = document.getElementById('audio');
+            const container = document.getElementById('container');
+            const clickMessage = document.getElementById('clickMessage');
+
+            goodbyeMessage.style.display = 'block';
+
+            video.addEventListener('play', () => {
+                audio.play().catch(error => {
+                    console.error('Audio play failed:', error);
+                });
+            });
+            container.addEventListener('click', () => {
+                window.location.href = 'hi.html';
+            });
+
+            clickMessage.addEventListener('click', () => {
+                audio.play().catch(error => {
+                    console.error('Audio play failed:', error);
+                });
+            });
+            container.addEventListener('click', () => {
+                if (audio.paused) {
+                    audio.play().catch(error => {
+                        console.error('Audio play failed:', error);
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
