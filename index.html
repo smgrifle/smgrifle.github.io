@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>pastelocked.xyz</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #f0f0f0;
+            cursor: pointer;
+        }
+
+        img {
+            width: 100vw;
+            height: 100vh;
+            object-fit: cover; 
+        }
+    </style>
+</head>
+<body>
+    <img id="monkeyImage" src="" alt="Random Monkey Image">
+    <audio id="clownSound" src="clown.mp3" loop></audio>
+
+    <script>
+        const images = [
+            "skydumbass.png",
+            "devil.png",
+            "arapedarpedmonkey.png",
+            "urraped.png",
+            "skydumbass.png"
+        ];
+
+
+        const randomImage = images[Math.floor(Math.random() * images.length)];
+
+
+        document.getElementById("monkeyImage").src = randomImage;
+        const clownSound = document.getElementById('clownSound');
+
+        document.body.addEventListener('click', function() {
+            clownSound.play();
+        });
+
+        clownSound.addEventListener('ended', function() {
+            clownSound.play();
+        });
+    </script>
+</body>
+</html>
